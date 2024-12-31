@@ -643,6 +643,7 @@ td {
 }
 
 // モーダル
+
 .modal {
   position: fixed;
   top: 0;
@@ -689,6 +690,9 @@ td {
   @include mq("sp") {
     padding-inline: 15px;
     padding-top: 65px;
+    max-width: 90vw;
+    max-height: 90vh;
+    overflow-y: auto;
   }
 }
 
@@ -706,6 +710,14 @@ td {
 
 .modal__content {
   position: relative;
+}
+
+.modal__text {
+  @include mq("sp") {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 170%; /* 23.8px */
+  }
 }
 
 .modal-close-icon {
