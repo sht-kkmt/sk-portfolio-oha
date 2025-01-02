@@ -642,8 +642,6 @@ td {
   background-color: #fabe00;
 }
 
-// モーダル
-
 .modal {
   position: fixed;
   top: 0;
@@ -658,6 +656,10 @@ td {
   opacity: 0;
   transition: opacity 0.5s, scale 0s 0.5s;
   scale: 0;
+}
+
+body.modal-open {
+  overflow: hidden; /* 背景スクロールを固定 */
 }
 
 .modal:target {
