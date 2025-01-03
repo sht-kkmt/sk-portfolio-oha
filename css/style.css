@@ -1773,4 +1773,8 @@ footer {
   right: 16px;
   bottom: 30px;
   width: 76px;
+}
+
+html {
+  scroll-behavior: smooth;
 }/*# sourceMappingURL=style.css.map */
