@@ -273,7 +273,7 @@ td {
 }
 .js-contentArea.is-checked {
   transform: translateX(0);
-  transition: transform 1s linear;
+  transition: transform 0.2s linear;
 }
 
 .fv__wrapper {
@@ -1278,6 +1278,7 @@ tr:last-child td {
   display: flex;
   align-items: center;
   justify-content: center;
+  color: #111;
 }
 
 .qa__icon-Q {
@@ -1309,6 +1310,7 @@ tr:last-child td {
   padding-right: 80px;
   display: block;
   text-align: left;
+  color: #111;
 }
 
 .qa__answer {
@@ -1316,6 +1318,7 @@ tr:last-child td {
   padding-right: 36px;
   display: block;
   text-align: left;
+  color: #111;
 }
 
 .qa__icon-A {
