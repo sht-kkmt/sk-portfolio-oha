@@ -60,32 +60,32 @@ const mySwiper = new Swiper(".swiper", {
 /*---------------------------
 モーダル表示時、背景スクロール制御
 ----------------------------*/
-jQuery(document).ready(function () {
-  // モーダルを開く処理
-  jQuery(".modal-open-btn").on("click", function (e) {
-    e.preventDefault();
-    console.log("モーダルを開きます"); // デバッグ用ログ
-    jQuery("body").addClass("modal-open"); // 背景スクロールを固定
-    jQuery("#modal").fadeIn(300); // モーダルを表示（300msでアニメーション）
-  });
+// jQuery(document).ready(function () {
+//   // モーダルを開く処理
+//   jQuery(".modal-open-btn").on("click", function (e) {
+//     e.preventDefault();
+//     console.log("モーダルを開きます"); // デバッグ用ログ
+//     jQuery("body").addClass("modal-open"); // 背景スクロールを固定
+//     jQuery("#modal").fadeIn(300); // モーダルを表示（300msでアニメーション）
+//   });
 
-  // モーダルを閉じる処理（ボタンで閉じる）
-  jQuery(".modal-close-btn, .modal__close").on("click", function (e) {
-    e.preventDefault();
-    console.log("モーダルを閉じます"); // デバッグ用ログ
-    jQuery("body").removeClass("modal-open"); // 背景スクロールを解除
-    jQuery("#modal").fadeOut(300); // モーダルを非表示（300msでアニメーション）
-  });
+//   // モーダルを閉じる処理（ボタンで閉じる）
+//   jQuery(".modal-close-btn, .modal__close").on("click", function (e) {
+//     e.preventDefault();
+//     console.log("モーダルを閉じます"); // デバッグ用ログ
+//     jQuery("body").removeClass("modal-open"); // 背景スクロールを解除
+//     jQuery("#modal").fadeOut(300); // モーダルを非表示（300msでアニメーション）
+//   });
 
-  // モーダル外をクリックした際に閉じる処理
-  jQuery("#modal").on("click", function (e) {
-    if (jQuery(e.target).closest(".modal__inner").length === 0) {
-      console.log("モーダル外をクリックしました"); // デバッグ用ログ
-      jQuery("body").removeClass("modal-open"); // 背景スクロールを解除
-      jQuery("#modal").fadeOut(300); // モーダルを非表示
-    }
-  });
-});
+//   // モーダル外をクリックした際に閉じる処理
+//   jQuery("#modal").on("click", function (e) {
+//     if (jQuery(e.target).closest(".modal__inner").length === 0) {
+//       console.log("モーダル外をクリックしました"); // デバッグ用ログ
+//       jQuery("body").removeClass("modal-open"); // 背景スクロールを解除
+//       jQuery("#modal").fadeOut(300); // モーダルを非表示
+//     }
+//   });
+// });
 
 // jQuery(document).ready(function () {
 //   // モーダルを開く処理
@@ -113,3 +113,37 @@ jQuery(document).ready(function () {
 //     }
 //   });
 // });
+
+//
+
+jQuery(document).ready(function () {
+  // モーダルを開く処理
+  jQuery(".modal-open-btn").on("click", function (e) {
+    e.preventDefault();
+    console.log("モーダルを開きます"); // ログ確認
+
+    jQuery("body").addClass("modal-open"); // 背景スクロールを固定
+    jQuery("#modal").css({
+      display: "flex", // モーダルを表示
+      opacity: 1, // 不透明に
+      transform: "scale(1)", // 元のサイズに
+    });
+  });
+
+  // モーダルを閉じる処理
+  jQuery(".modal-close-btn, .modal__close").on("click", function (e) {
+    e.preventDefault();
+    console.log("モーダルを閉じます"); // ログ確認
+
+    jQuery("#modal").css({
+      opacity: 0, // 透明に
+      transform: "scale(0)", // 小さくする
+    });
+
+    // トランジション後に非表示に
+    setTimeout(function () {
+      jQuery("#modal").css("display", "none");
+      jQuery("body").removeClass("modal-open");
+    }, 500); // トランジション時間に合わせる
+  });
+});
